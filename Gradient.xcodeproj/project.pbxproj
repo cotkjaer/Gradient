@@ -10,6 +10,7 @@
 		8FD8755D1C7629C400181FA6 /* Gradient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FD8755C1C7629C400181FA6 /* Gradient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FD875641C7629C400181FA6 /* Gradient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD875591C7629C400181FA6 /* Gradient.framework */; };
 		8FD875691C7629C400181FA6 /* GradientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD875681C7629C400181FA6 /* GradientTests.swift */; };
+		8FD875741C7629D000181FA6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD875731C7629D000181FA6 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		8FD875631C7629C400181FA6 /* GradientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GradientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD875681C7629C400181FA6 /* GradientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTests.swift; sourceTree = "<group>"; };
 		8FD8756A1C7629C400181FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FD875731C7629D000181FA6 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		8FD8755B1C7629C400181FA6 /* Gradient */ = {
 			isa = PBXGroup;
 			children = (
+				8FD875731C7629D000181FA6 /* GradientView.swift */,
 				8FD8755C1C7629C400181FA6 /* Gradient.h */,
 				8FD8755E1C7629C400181FA6 /* Info.plist */,
 			);
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD875741C7629D000181FA6 /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +312,7 @@
 		8FD8756E1C7629C400181FA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +323,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.Gradient";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		8FD8756F1C7629C400181FA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
