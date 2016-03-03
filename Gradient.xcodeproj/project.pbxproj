@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F77117F1C8733DC00B6B218 /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77117E1C8733DC00B6B218 /* RadialGradientView.swift */; };
+		8F7711911C874CA600B6B218 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7711901C874CA600B6B218 /* Gradient.swift */; };
+		8F7711991C8756E200B6B218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7711981C8756E200B6B218 /* AppDelegate.swift */; };
+		8F77119B1C8756E200B6B218 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77119A1C8756E200B6B218 /* ViewController.swift */; };
+		8F77119E1C8756E200B6B218 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F77119C1C8756E200B6B218 /* Main.storyboard */; };
+		8F7711A01C8756E200B6B218 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F77119F1C8756E200B6B218 /* Assets.xcassets */; };
+		8F7711A31C8756E200B6B218 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F7711A11C8756E200B6B218 /* LaunchScreen.storyboard */; };
+		8F7711B61C8758A700B6B218 /* Gradient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD875591C7629C400181FA6 /* Gradient.framework */; };
+		8F7711B71C8758A700B6B218 /* Gradient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD875591C7629C400181FA6 /* Gradient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F7711BC1C8832E800B6B218 /* LinearGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7711BB1C8832E800B6B218 /* LinearGradientView.swift */; };
+		8F7711BE1C883EE800B6B218 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7711BD1C883EE800B6B218 /* Anchor.swift */; };
 		8FD8755D1C7629C400181FA6 /* Gradient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FD8755C1C7629C400181FA6 /* Gradient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FD875641C7629C400181FA6 /* Gradient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD875591C7629C400181FA6 /* Gradient.framework */; };
 		8FD875691C7629C400181FA6 /* GradientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD875681C7629C400181FA6 /* GradientTests.swift */; };
@@ -14,6 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8F7711B81C8758A700B6B218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8FD875501C7629C400181FA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FD875581C7629C400181FA6;
+			remoteInfo = Gradient;
+		};
 		8FD875651C7629C400181FA6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8FD875501C7629C400181FA6 /* Project object */;
@@ -23,7 +41,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8F7711BA1C8758A800B6B218 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8F7711B71C8758A700B6B218 /* Gradient.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8F77117E1C8733DC00B6B218 /* RadialGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
+		8F7711901C874CA600B6B218 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		8F7711961C8756E200B6B218 /* GradientDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradientDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F7711981C8756E200B6B218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8F77119A1C8756E200B6B218 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8F77119D1C8756E200B6B218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8F77119F1C8756E200B6B218 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F7711A21C8756E200B6B218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F7711A41C8756E200B6B218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F7711BB1C8832E800B6B218 /* LinearGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradientView.swift; sourceTree = "<group>"; };
+		8F7711BD1C883EE800B6B218 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		8FD875591C7629C400181FA6 /* Gradient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gradient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD8755C1C7629C400181FA6 /* Gradient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gradient.h; sourceTree = "<group>"; };
 		8FD8755E1C7629C400181FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,6 +77,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8F7711931C8756E200B6B218 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F7711B61C8758A700B6B218 /* Gradient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8FD875551C7629C400181FA6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,11 +103,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F7711971C8756E200B6B218 /* GradientDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8F7711981C8756E200B6B218 /* AppDelegate.swift */,
+				8F77119A1C8756E200B6B218 /* ViewController.swift */,
+				8F77119C1C8756E200B6B218 /* Main.storyboard */,
+				8F77119F1C8756E200B6B218 /* Assets.xcassets */,
+				8F7711A11C8756E200B6B218 /* LaunchScreen.storyboard */,
+				8F7711A41C8756E200B6B218 /* Info.plist */,
+			);
+			path = GradientDemo;
+			sourceTree = "<group>";
+		};
+		8F7711BF1C886E5200B6B218 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8FD8755C1C7629C400181FA6 /* Gradient.h */,
+				8FD8755E1C7629C400181FA6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8FD8754F1C7629C400181FA6 = {
 			isa = PBXGroup;
 			children = (
 				8FD8755B1C7629C400181FA6 /* Gradient */,
 				8FD875671C7629C400181FA6 /* GradientTests */,
+				8F7711971C8756E200B6B218 /* GradientDemo */,
 				8FD8755A1C7629C400181FA6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +140,7 @@
 			children = (
 				8FD875591C7629C400181FA6 /* Gradient.framework */,
 				8FD875631C7629C400181FA6 /* GradientTests.xctest */,
+				8F7711961C8756E200B6B218 /* GradientDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,9 +148,12 @@
 		8FD8755B1C7629C400181FA6 /* Gradient */ = {
 			isa = PBXGroup;
 			children = (
+				8F7711BD1C883EE800B6B218 /* Anchor.swift */,
+				8F7711901C874CA600B6B218 /* Gradient.swift */,
 				8FD875731C7629D000181FA6 /* GradientView.swift */,
-				8FD8755C1C7629C400181FA6 /* Gradient.h */,
-				8FD8755E1C7629C400181FA6 /* Info.plist */,
+				8F7711BB1C8832E800B6B218 /* LinearGradientView.swift */,
+				8F77117E1C8733DC00B6B218 /* RadialGradientView.swift */,
+				8F7711BF1C886E5200B6B218 /* Supporting Files */,
 			);
 			path = Gradient;
 			sourceTree = "<group>";
@@ -103,6 +181,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		8F7711951C8756E200B6B218 /* GradientDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F7711B01C8756E200B6B218 /* Build configuration list for PBXNativeTarget "GradientDemo" */;
+			buildPhases = (
+				8F7711921C8756E200B6B218 /* Sources */,
+				8F7711931C8756E200B6B218 /* Frameworks */,
+				8F7711941C8756E200B6B218 /* Resources */,
+				8F7711BA1C8758A800B6B218 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F7711B91C8758A700B6B218 /* PBXTargetDependency */,
+			);
+			name = GradientDemo;
+			productName = GradientDemo;
+			productReference = 8F7711961C8756E200B6B218 /* GradientDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8FD875581C7629C400181FA6 /* Gradient */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FD8756D1C7629C400181FA6 /* Build configuration list for PBXNativeTarget "Gradient" */;
@@ -149,6 +246,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Christian Otkjær";
 				TargetAttributes = {
+					8F7711951C8756E200B6B218 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					8FD875581C7629C400181FA6 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -163,6 +263,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 8FD8754F1C7629C400181FA6;
 			productRefGroup = 8FD8755A1C7629C400181FA6 /* Products */;
@@ -171,11 +272,22 @@
 			targets = (
 				8FD875581C7629C400181FA6 /* Gradient */,
 				8FD875621C7629C400181FA6 /* GradientTests */,
+				8F7711951C8756E200B6B218 /* GradientDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8F7711941C8756E200B6B218 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F7711A31C8756E200B6B218 /* LaunchScreen.storyboard in Resources */,
+				8F7711A01C8756E200B6B218 /* Assets.xcassets in Resources */,
+				8F77119E1C8756E200B6B218 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8FD875571C7629C400181FA6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,11 +305,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8F7711921C8756E200B6B218 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F77119B1C8756E200B6B218 /* ViewController.swift in Sources */,
+				8F7711991C8756E200B6B218 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8FD875541C7629C400181FA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8FD875741C7629D000181FA6 /* GradientView.swift in Sources */,
+				8F7711BE1C883EE800B6B218 /* Anchor.swift in Sources */,
+				8F77117F1C8733DC00B6B218 /* RadialGradientView.swift in Sources */,
+				8F7711911C874CA600B6B218 /* Gradient.swift in Sources */,
+				8F7711BC1C8832E800B6B218 /* LinearGradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +337,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8F7711B91C8758A700B6B218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FD875581C7629C400181FA6 /* Gradient */;
+			targetProxy = 8F7711B81C8758A700B6B218 /* PBXContainerItemProxy */;
+		};
 		8FD875661C7629C400181FA6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8FD875581C7629C400181FA6 /* Gradient */;
@@ -219,7 +349,50 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		8F77119C1C8756E200B6B218 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F77119D1C8756E200B6B218 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8F7711A11C8756E200B6B218 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F7711A21C8756E200B6B218 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		8F7711B11C8756E200B6B218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = GradientDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.GradientDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8F7711B21C8756E200B6B218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = GradientDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.GradientDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		8FD8756B1C7629C400181FA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -367,6 +540,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8F7711B01C8756E200B6B218 /* Build configuration list for PBXNativeTarget "GradientDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F7711B11C8756E200B6B218 /* Debug */,
+				8F7711B21C8756E200B6B218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		8FD875531C7629C400181FA6 /* Build configuration list for PBXProject "Gradient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -383,6 +564,7 @@
 				8FD8756F1C7629C400181FA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8FD875701C7629C400181FA6 /* Build configuration list for PBXNativeTarget "GradientTests" */ = {
 			isa = XCConfigurationList;
@@ -391,6 +573,7 @@
 				8FD875721C7629C400181FA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
