@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let CGPointInfinity = CGPoint(x: CGFloat.infinity, y: CGFloat.infinity)
-
 @IBDesignable
 public class GradientView: UIView
 {

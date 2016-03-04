@@ -6,6 +6,8 @@
 //  Copyright © 2016 Christian Otkjær. All rights reserved.
 //
 
+internal let CGPointInfinity = CGPoint(x: CGFloat.infinity, y: CGFloat.infinity)
+
 internal func anchor(size: CGSize, anchor: CGPoint) -> CGPoint
 {
     return CGPoint(

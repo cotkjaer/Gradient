@@ -8,7 +8,8 @@
 
 import UIKit
 
-private let GradientDrawingOptions : CGGradientDrawingOptions = [.DrawsBeforeStartLocation, .DrawsAfterEndLocation]
+private let GradientDrawingOptions : CGGradientDrawingOptions =
+[.DrawsBeforeStartLocation, .DrawsAfterEndLocation]
 
 private let DefaultColors : [UIColor] = [UIColor(white: 1, alpha: 1), UIColor(white: 1, alpha: 0)]
 
