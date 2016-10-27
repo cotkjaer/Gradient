@@ -19,7 +19,7 @@ open class Gradient
     open let colors : [UIColor]
     open let locations : [CGFloat]
     
-    init?(
+    public init?(
         colors: [UIColor] = [UIColor(white: 1, alpha: 1), UIColor(white: 1, alpha: 0)],
         locations: [CGFloat]? = nil)
     {
