@@ -8,7 +8,7 @@
 
 internal let CGPointInfinity = CGPoint(x: CGFloat.infinity, y: CGFloat.infinity)
 
-internal func anchor(size: CGSize, anchor: CGPoint) -> CGPoint
+internal func anchor(_ size: CGSize, anchor: CGPoint) -> CGPoint
 {
     return CGPoint(
         x: size.width * min(1, max (0, anchor.x)),

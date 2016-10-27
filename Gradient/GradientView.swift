@@ -9,41 +9,41 @@
 import UIKit
 
 @IBDesignable
-public class GradientView: UIView
+open class GradientView: UIView
 {
     // MARK: - Colors
     
     @IBInspectable
-    public var startColor : UIColor = UIColor(white: 1, alpha: 1) { didSet { setNeedsGradientUpdate(oldValue != startColor) } }
+    open var startColor : UIColor = UIColor(white: 1, alpha: 1) { didSet { setNeedsGradientUpdate(oldValue != startColor) } }
     
     @IBInspectable
-    public var endColor : UIColor = UIColor(white: 1, alpha: 0) { didSet { setNeedsGradientUpdate(oldValue != endColor) } }
+    open var endColor : UIColor = UIColor(white: 1, alpha: 0) { didSet { setNeedsGradientUpdate(oldValue != endColor) } }
     
-    public var otherColors = Array<UIColor>() { didSet { setNeedsGradientUpdate(oldValue != otherColors) } }
+    open var otherColors = Array<UIColor>() { didSet { setNeedsGradientUpdate(oldValue != otherColors) } }
     
-    public var colors : [UIColor] { return [startColor] + otherColors + [endColor] }
+    open var colors : [UIColor] { return [startColor] + otherColors + [endColor] }
     
     // MARK: - Anchors
 
     internal class var DefaultStartAnchor : CGPoint { return CGPoint(x: 0, y: 0) }
     
     @IBInspectable
-    public var startAnchor : CGPoint = CGPointInfinity
+    open var startAnchor : CGPoint = CGPointInfinity
         
         { didSet { setNeedsImageUpdate(oldValue != startAnchor) } }
 
     internal class var DefaultEndAnchor : CGPoint { return CGPoint(x: 0, y: 0) }
 
     @IBInspectable
-    public var endAnchor : CGPoint = CGPointInfinity
+    open var endAnchor : CGPoint = CGPointInfinity
         { didSet { setNeedsImageUpdate(oldValue != endAnchor) } }
     
-    override public var bounds : CGRect { didSet { setNeedsImageUpdate(oldValue != bounds) } }
+    override open var bounds : CGRect { didSet { setNeedsImageUpdate(oldValue != bounds) } }
     
     // MARK: - Image
     
     internal final func gradientImageWithSize(
-        size: CGSize,
+        _ size: CGSize,
         colors: [UIColor],
         locations: [CGFloat]?,
         startAnchor: CGPoint,
@@ -58,52 +58,52 @@ public class GradientView: UIView
         
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
         
-        let startA = startAnchor == CGPointInfinity ? self.dynamicType.DefaultStartAnchor : startAnchor
+        let startA = startAnchor == CGPointInfinity ? type(of: self).DefaultStartAnchor : startAnchor
 
-        let endA = endAnchor == CGPointInfinity ? self.dynamicType.DefaultEndAnchor : endAnchor
+        let endA = endAnchor == CGPointInfinity ? type(of: self).DefaultEndAnchor : endAnchor
         
         let startPoint = anchor(size, anchor: startA)
         
         let endPoint = anchor(size, anchor: endA)
         
-        drawGradient(gradient, withSize: size, start: startPoint, end: endPoint, inContext: context, options: [.DrawsBeforeStartLocation, .DrawsAfterEndLocation])
+        drawGradient(gradient, withSize: size, start: startPoint, end: endPoint, inContext: context, options: [.drawsBeforeStartLocation, .drawsAfterEndLocation])
         
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 
-    private var needsImageUpdate = true
+    fileprivate var needsImageUpdate = true
     
-    private func setNeedsImageUpdate(needed: Bool = true)
+    fileprivate func setNeedsImageUpdate(_ needed: Bool = true)
     {
         if needed { needsImageUpdate = true; setNeedsLayout() }
     }
     
     // MARK: - CGGradient
     
-    private var gradient : CGGradient?
+    fileprivate var gradient : CGGradient?
     
-    private func createCGGradient(colors:[UIColor], locations: [CGFloat]?) -> CGGradient?
+    fileprivate func createCGGradient(_ colors:[UIColor], locations: [CGFloat]?) -> CGGradient?
     {
-        let cgColors = colors.map({ $0.CGColor })
+        let cgColors = colors.map({ $0.cgColor })
         
         if let locations = locations
         {
-            return CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), cgColors, locations)
+            return CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: cgColors as CFArray, locations: locations)
         }
         else
         {
-            return CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), cgColors, nil)
+            return CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: cgColors as CFArray, locations: nil)
         }
     }
     
-    internal func drawGradient(gradient: CGGradient, withSize size: CGSize, start: CGPoint, end: CGPoint, inContext context: CGContext, options: CGGradientDrawingOptions)
+    internal func drawGradient(_ gradient: CGGradient, withSize size: CGSize, start: CGPoint, end: CGPoint, inContext context: CGContext, options: CGGradientDrawingOptions)
     {
         debugPrint("Override drawGradient")
     }
     
-    private var needsGradientUpdate = true
+    fileprivate var needsGradientUpdate = true
     
-    private func setNeedsGradientUpdate(needed: Bool = true)
+    fileprivate func setNeedsGradientUpdate(_ needed: Bool = true)
     {
         if needed
         {
@@ -114,7 +114,7 @@ public class GradientView: UIView
     
     // MARK: - Layout
     
-    public override func layoutSubviews()
+    open override func layoutSubviews()
     {
         super.layoutSubviews()
         
@@ -129,13 +129,13 @@ public class GradientView: UIView
         {
             needsImageUpdate = false
             
-            layer.contents = gradientImageWithSize(bounds.size, colors: colors, locations: nil, startAnchor: startAnchor ?? self.dynamicType.DefaultStartAnchor, endAnchor: endAnchor ?? self.dynamicType.DefaultEndAnchor)?.CGImage
+            layer.contents = gradientImageWithSize(bounds.size, colors: colors, locations: nil, startAnchor: startAnchor , endAnchor: endAnchor )?.cgImage
         }
     }
     
     // MARK: - Interface Builder
 
-    public override func intrinsicContentSize() -> CGSize
+    open override var intrinsicContentSize : CGSize
     {
         return CGSize(width: 100, height: 100)
     }

@@ -8,7 +8,7 @@
 
 
 @IBDesignable
-public class RadialGradientView: GradientView
+open class RadialGradientView: GradientView
 {
     // MARK: - Anchors
     
@@ -18,10 +18,10 @@ public class RadialGradientView: GradientView
     
     // MARK: - Draw
     
-    override func drawGradient(gradient: CGGradient, withSize size: CGSize, start: CGPoint, end: CGPoint, inContext context: CGContext, options: CGGradientDrawingOptions)
+    override func drawGradient(_ gradient: CGGradient, withSize size: CGSize, start: CGPoint, end: CGPoint, inContext context: CGContext, options: CGGradientDrawingOptions)
     {
         let radius = max(max(size.width - end.x, end.x), max(size.height - end.y, end.y))
         
-        CGContextDrawRadialGradient(context, gradient, start, 0, end, radius, options)
+        context.drawRadialGradient(gradient, startCenter: start, startRadius: 0, endCenter: end, endRadius: radius, options: options)
     }
 }

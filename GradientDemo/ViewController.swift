@@ -19,10 +19,10 @@ class ViewController: UIViewController
         view.layoutIfNeeded()
         height.constant *= 0.9
         width.constant *= 1.1
-        UIView.animateWithDuration(0.25)
-            {
+        UIView.animate(withDuration: 0.25, animations: {
                 self.view.layoutIfNeeded()
-        }
+        })
+            
     }
 }
 

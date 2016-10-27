@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class LinearGradientView: GradientView
+open class LinearGradientView: GradientView
 {
     // MARK: - Anchors
     
@@ -19,8 +19,8 @@ public class LinearGradientView: GradientView
     
     // MARK: - Draw
 
-    override func drawGradient(gradient: CGGradient, withSize size: CGSize, start: CGPoint, end: CGPoint, inContext context: CGContext, options: CGGradientDrawingOptions)
+    override func drawGradient(_ gradient: CGGradient, withSize size: CGSize, start: CGPoint, end: CGPoint, inContext context: CGContext, options: CGGradientDrawingOptions)
     {
-          CGContextDrawLinearGradient(context, gradient, start, end, options)
+          context.drawLinearGradient(gradient, start: start, end: end, options: options)
     }
 }
