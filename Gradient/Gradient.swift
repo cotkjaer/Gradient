@@ -14,21 +14,42 @@ private let DefaultColors : [UIColor] = [UIColor(white: 1, alpha: 1), UIColor(wh
 
 open class Gradient
 {
-    fileprivate let cgGradient : CGGradient?
-    
-    open let colors : [UIColor]
-    open let locations : [CGFloat]
-    
-    public init?(
-        colors: [UIColor] = [UIColor(white: 1, alpha: 1), UIColor(white: 1, alpha: 0)],
-        locations: [CGFloat]? = nil)
+    public struct ColorStop
     {
-        self.colors = colors
-        self.locations = locations ?? (colors.indices.suffix(from: 0)).map({ CGFloat($0) / CGFloat(colors.endIndex - 1)})
-        self.cgGradient = createCGGradient(colors, locations: locations)
-        
+        var color : UIColor
+        var location : Float
+    }
+    
+    let colorStops : Array<ColorStop>
+    
+    init<C:Collection>(colorStops: C) where C.Iterator.Element == ColorStop
+    {
+        self.colorStops = colorStops.sorted { $0.location < $1.location }
+    }
+    
+    convenience init?(colors: [UIColor])
+    {
         guard colors.count > 1 else { return nil }
-        guard cgGradient != nil else { return nil }
+        
+        let locations = Float(colors.count - 1)
+        
+        let colorStops = colors.enumerated().map {
+            ColorStop(color: $1, location: Float($0) / locations)
+        }
+        
+        self.init(colorStops: colorStops)
+    }
+    
+    var cgGradient : CGGradient?
+    {
+        let cgColors = colorStops.map { $0.color.cgColor }
+        
+        let locations = colorStops.map { CGFloat($0.location) }
+        
+        return CGGradient(
+            colorsSpace: CGColorSpaceCreateDeviceRGB(),
+            colors: cgColors as CFArray,
+            locations: locations)
     }
     
     open func imageWithRadialGradient(_ size: CGSize,
@@ -36,7 +57,7 @@ open class Gradient
                                       endAnchor: CGPoint = CGPoint(x: 0.5, y: 0.5)
         ) -> UIImage?
     {
-        guard let cgGradient = cgGradient else { return nil }
+        guard let cgGradient = self.cgGradient else { return nil }
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         
@@ -67,7 +88,7 @@ open class Gradient
         endAnchor: CGPoint = CGPoint(x: 1, y: 0.5)
         ) -> UIImage?
     {
-        guard let cgGradient = cgGradient else { return nil }
+        guard let cgGradient = self.cgGradient else { return nil }
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         
@@ -91,24 +112,15 @@ extension Gradient : Equatable {}
 
 public func == (lhs: Gradient, rhs:Gradient) -> Bool
 {
-    return lhs.colors == rhs.colors && lhs.locations == rhs.locations
+    return lhs.colorStops.map({$0.color}) == rhs.colorStops.map({$0.color}) &&
+    lhs.colorStops.map({$0.location}) == rhs.colorStops.map({$0.location})
 }
 
 // MARK: - CustomDebugStringConvertible
 
 extension Gradient : CustomDebugStringConvertible
 {
-    public var colorsDebugDescription: String
-    {
-        return colors.map({ $0.debugDescription }).joined(separator: ",")
-    }
-    
-    public var locationsDebugDescription: String
-    {
-        return locations.map({ String(format: "%.3f", $0)}).joined(separator: ",")
-    }
-    
-    public var debugDescription : String { return "\(type(of: self)): colors: \(colorsDebugDescription), locations: \(locationsDebugDescription)" }
+    public var debugDescription : String { return "\(type(of: self)): colorStopss: \(colorStops.map({ "\($0.location) : \($0.color)"}))" }
 }
 
 private func createCGGradient(_ colors:[UIColor], locations: [CGFloat]?) -> CGGradient?
