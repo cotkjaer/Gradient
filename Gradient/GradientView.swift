@@ -14,31 +14,31 @@ open class GradientView: UIView
     // MARK: - Colors
     
     @IBInspectable
-    open var startColor : UIColor = UIColor(white: 1, alpha: 1) { didSet { setNeedsGradientUpdate(oldValue != startColor) } }
+    open var startColor: UIColor = UIColor(white: 1, alpha: 1) { didSet { setNeedsGradientUpdate(oldValue != startColor) } }
     
     @IBInspectable
-    open var endColor : UIColor = UIColor(white: 1, alpha: 0) { didSet { setNeedsGradientUpdate(oldValue != endColor) } }
+    open var endColor: UIColor = UIColor(white: 1, alpha: 0) { didSet { setNeedsGradientUpdate(oldValue != endColor) } }
     
-    open var otherColors = Array<UIColor>() { didSet { setNeedsGradientUpdate(oldValue != otherColors) } }
+    open var otherColors: [UIColor] = [] { didSet { setNeedsGradientUpdate(oldValue != otherColors) } }
     
-    open var colors : [UIColor] { return [startColor] + otherColors + [endColor] }
+    open var colors: [UIColor] { return [startColor] + otherColors + [endColor] }
     
     // MARK: - Anchors
 
-    internal class var DefaultStartAnchor : CGPoint { return CGPoint(x: 0, y: 0) }
+    internal class var DefaultStartAnchor: CGPoint { return CGPoint(x: 0, y: 0) }
     
     @IBInspectable
-    open var startAnchor : CGPoint = CGPointInfinity
+    open var startAnchor: CGPoint = CGPointInfinity
         
         { didSet { setNeedsImageUpdate(oldValue != startAnchor) } }
 
-    internal class var DefaultEndAnchor : CGPoint { return CGPoint(x: 0, y: 0) }
+    internal class var DefaultEndAnchor: CGPoint { return .zero }
 
     @IBInspectable
-    open var endAnchor : CGPoint = CGPointInfinity
+    open var endAnchor: CGPoint = CGPointInfinity
         { didSet { setNeedsImageUpdate(oldValue != endAnchor) } }
     
-    override open var bounds : CGRect { didSet { setNeedsImageUpdate(oldValue != bounds) } }
+    override open var bounds: CGRect { didSet { setNeedsImageUpdate(oldValue != bounds) } }
     
     // MARK: - Image
     
@@ -58,9 +58,9 @@ open class GradientView: UIView
         
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
         
-        let startA = startAnchor == CGPointInfinity ? type(of: self).DefaultStartAnchor : startAnchor
+        let startA = startAnchor == CGPointInfinity ? type(of: self).DefaultStartAnchor: startAnchor
 
-        let endA = endAnchor == CGPointInfinity ? type(of: self).DefaultEndAnchor : endAnchor
+        let endA = endAnchor == CGPointInfinity ? type(of: self).DefaultEndAnchor: endAnchor
         
         let startPoint = anchor(size, anchor: startA)
         
@@ -80,7 +80,7 @@ open class GradientView: UIView
     
     // MARK: - CGGradient
     
-    fileprivate var gradient : CGGradient?
+    fileprivate var gradient: CGGradient?
     
     fileprivate func createCGGradient(_ colors:[UIColor], locations: [CGFloat]?) -> CGGradient?
     {
@@ -135,7 +135,7 @@ open class GradientView: UIView
     
     // MARK: - Interface Builder
 
-    open override var intrinsicContentSize : CGSize
+    open override var intrinsicContentSize: CGSize
     {
         return CGSize(width: 100, height: 100)
     }
