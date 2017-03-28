@@ -1,17 +1,16 @@
 //
-//  GradientTableView.swift
+//  GradientButton.swift
 //  Gradient
 //
-//  Created by Christian Otkjær on 22/03/17.
+//  Created by Christian Otkjær on 28/03/17.
 //  Copyright © 2017 Christian Otkjær. All rights reserved.
 //
 
 import UIKit
 
-@IBDesignable
-open class GradientTableView: UITableView
-{
-    /// The startColor for the Gardient
+class GradientButton: UIButton {
+
+    /// The start-color for the Gardient
     @IBInspectable
     open var startColor: UIColor = .white
         {
@@ -20,13 +19,29 @@ open class GradientTableView: UITableView
         }
     }
     
-    /// Thet endColor for the Gardient
+    /// The start-point for the Gardient
+    @IBInspectable
+    open var gradientStartPoint: CGPoint
+        {
+        set { gradientLayer.startPoint = newValue }
+        get { return gradientLayer.startPoint }
+    }
+
+    /// The end-color for the Gardient
     @IBInspectable
     open var endColor: UIColor = .black
         {
         didSet{
             setupGradient()
         }
+    }
+    
+    /// The end-point for the Gardient
+    @IBInspectable
+    open var gradientEndPoint: CGPoint
+        {
+        set { gradientLayer.endPoint = newValue }
+        get { return gradientLayer.endPoint }
     }
     
     func setupGradient()
@@ -42,42 +57,33 @@ open class GradientTableView: UITableView
         setNeedsDisplay()
     }
     
-    func updateGradient()
+    func updateGradient(forSize: CGSize? = nil)
     {
-        var size = contentSize
+        var size = forSize ?? bounds.size
         
         size.height = max(size.height, bounds.height)
-
-        size.width += contentInset.left + contentInset.right
-        size.height += contentInset.top + contentInset.bottom
-
-        var origin = CGPoint(x: -contentInset.left, y: -contentInset.top)
         
-        if bounces
-        {
-            size.height += bounds.height / 2
-            origin.y -= bounds.height / 4
-        }
+        size.width += imageEdgeInsets.left + imageEdgeInsets.right
+        size.height += imageEdgeInsets.top + imageEdgeInsets.bottom
+        
+        let origin = CGPoint(x: -imageEdgeInsets.left, y: -imageEdgeInsets.top)
         
         gradientLayer.frame = CGRect(origin: origin, size: size)
-        needsGradientUpdate = false
     }
-    
-    var needsGradientUpdate: Bool = true
     
     open override func layoutSubviews()
     {
         super.layoutSubviews()
-        if needsGradientUpdate { updateGradient() }
+        updateGradient()
     }
     
     let gradientLayer = CAGradientLayer()
     
     // MARK: - Init
-
-    override init(frame: CGRect, style: UITableViewStyle)
+    
+    override init(frame: CGRect)
     {
-        super.init(frame: frame, style: style)
+        super.init(frame: frame)
         initialSetup()
     }
     
@@ -97,15 +103,5 @@ open class GradientTableView: UITableView
     {
         setupGradient()
         layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
-    open override var contentSize: CGSize
-    {
-        didSet { if oldValue != contentSize { needsGradientUpdate = true } }
-    }
-    
-    open override var frame: CGRect
-        {
-        didSet { if oldValue.size != frame.size { needsGradientUpdate = true } }
     }
 }
