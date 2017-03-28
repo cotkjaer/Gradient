@@ -8,7 +8,8 @@
 
 import UIKit
 
-class GradientButton: UIButton {
+@IBDesignable
+open class GradientButton: UIButton {
 
     /// The start-color for the Gardient
     @IBInspectable
